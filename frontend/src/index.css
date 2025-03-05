@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Jura:wght@300..700&family=Karantina:wght@300;400;700&family=Nova+Cut&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 
 @layer base {
   :root {
@@ -76,7 +79,7 @@
 
 @layer base {
   * {
-    cursor: none;
+    /* cursor: none; */
     @apply border-border;
   }
   body {

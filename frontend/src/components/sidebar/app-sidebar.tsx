@@ -1,9 +1,7 @@
 import {
-  Calendar,
   ChevronUp,
   Home,
   Inbox,
-  Search,
   Settings,
   User2,
 } from "lucide-react";
@@ -39,18 +37,8 @@ const items = [
     icon: Inbox,
   },
   {
-    title: "Calendar",
-    url: "#",
-    icon: Calendar,
-  },
-  {
-    title: "Search",
-    url: "#",
-    icon: Search,
-  },
-  {
     title: "Settings",
-    url: "#",
+    url: "/settings",
     icon: Settings,
   },
 ];
@@ -60,7 +48,7 @@ export function AppSidebar() {
     <Sidebar variant="floating" collapsible="icon">
       <SidebarContent>
         <SidebarGroup>
-          <SidebarGroupLabel>Application</SidebarGroupLabel>
+          <SidebarGroupLabel>Navbar</SidebarGroupLabel>
           <SidebarGroupContent>
             <SidebarMenu>
               {items.map((item) => (
@@ -80,7 +68,7 @@ export function AppSidebar() {
       <SidebarFooter>
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
-            <SidebarMenuButton>
+            <SidebarMenuButton className="cursor-pointer-none">
               <User2 /> Username
               <ChevronUp className="ml-auto" />
             </SidebarMenuButton>
@@ -88,11 +76,11 @@ export function AppSidebar() {
           <DropdownMenuContent
             side="right"
             className="w-[200px] flex flex-col p-[10px] border-[1px] border-black
-                  rounded-[10px] bg-slate-300 shadow-md ml-[20px]"
+                  rounded-[10px] bg-slate-300 shadow-md ml-[20px] cursor-pointer-none"
           >
             <DropdownMenuItem
               className="w-full text-black pl-[5px] rounded-[3px]
-                  cursor-pointer hover:bg-slate-100 "
+                  cursor-pointer hover:bg-slate-100 cursor-pointer-none"
             >
               <span className="cursor-pointer-none">Account</span>
             </DropdownMenuItem>

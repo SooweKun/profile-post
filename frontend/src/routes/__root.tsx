@@ -11,8 +11,8 @@ function Index() {
   return (
     <React.Fragment>
       <Sidebar>
-        <Outlet />
         <CustomCursor />
+        <Outlet />
       </Sidebar>
     </React.Fragment>
   );

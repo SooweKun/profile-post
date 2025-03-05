@@ -4,6 +4,9 @@ module.exports = {
     content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
   	extend: {
+		fontFamily: {
+			'Karantina': ['Karantina', 'sans-serif'],
+		  },
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
