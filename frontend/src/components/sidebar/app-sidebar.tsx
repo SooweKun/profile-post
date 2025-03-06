@@ -1,10 +1,4 @@
-import {
-  ChevronUp,
-  Home,
-  Inbox,
-  Settings,
-  User2,
-} from "lucide-react";
+import { ChevronUp, Home, Inbox, Settings, User2 } from "lucide-react";
 
 import {
   Sidebar,
@@ -20,9 +14,9 @@ import {
 import {
   DropdownMenu,
   DropdownMenuContent,
-  DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
+import { DropContent } from "./DropContent";
 
 // Menu items
 const items = [
@@ -73,17 +67,8 @@ export function AppSidebar() {
               <ChevronUp className="ml-auto" />
             </SidebarMenuButton>
           </DropdownMenuTrigger>
-          <DropdownMenuContent
-            side="right"
-            className="w-[200px] flex flex-col p-[10px] border-[1px] border-black
-                  rounded-[10px] bg-slate-300 shadow-md ml-[20px] cursor-pointer-none"
-          >
-            <DropdownMenuItem
-              className="w-full text-black pl-[5px] rounded-[3px]
-                  cursor-pointer hover:bg-slate-100 cursor-pointer-none"
-            >
-              <span className="cursor-pointer-none">Account</span>
-            </DropdownMenuItem>
+          <DropdownMenuContent side="right" className="pl-[20px] pb-[10px]">
+            <DropContent />
           </DropdownMenuContent>
         </DropdownMenu>
       </SidebarFooter>

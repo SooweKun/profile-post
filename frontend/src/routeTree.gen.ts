@@ -13,8 +13,9 @@
 import { Route as rootRoute } from './routes/__root'
 import { Route as IndexImport } from './routes/index'
 import { Route as SettingsIndexImport } from './routes/settings/index'
+import { Route as RegisterIndexImport } from './routes/register/index'
+import { Route as ProfileIndexImport } from './routes/profile/index'
 import { Route as LoginIndexImport } from './routes/login/index'
-import { Route as AuthIndexImport } from './routes/auth/index'
 import { Route as AboutIndexImport } from './routes/about/index'
 
 // Create/Update Routes
@@ -31,15 +32,21 @@ const SettingsIndexRoute = SettingsIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
-const LoginIndexRoute = LoginIndexImport.update({
-  id: '/login/',
-  path: '/login/',
+const RegisterIndexRoute = RegisterIndexImport.update({
+  id: '/register/',
+  path: '/register/',
   getParentRoute: () => rootRoute,
 } as any)
 
-const AuthIndexRoute = AuthIndexImport.update({
-  id: '/auth/',
-  path: '/auth/',
+const ProfileIndexRoute = ProfileIndexImport.update({
+  id: '/profile/',
+  path: '/profile/',
+  getParentRoute: () => rootRoute,
+} as any)
+
+const LoginIndexRoute = LoginIndexImport.update({
+  id: '/login/',
+  path: '/login/',
   getParentRoute: () => rootRoute,
 } as any)
 
@@ -67,18 +74,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutIndexImport
       parentRoute: typeof rootRoute
     }
-    '/auth/': {
-      id: '/auth/'
-      path: '/auth'
-      fullPath: '/auth'
-      preLoaderRoute: typeof AuthIndexImport
-      parentRoute: typeof rootRoute
-    }
     '/login/': {
       id: '/login/'
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/profile/': {
+      id: '/profile/'
+      path: '/profile'
+      fullPath: '/profile'
+      preLoaderRoute: typeof ProfileIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/register/': {
+      id: '/register/'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterIndexImport
       parentRoute: typeof rootRoute
     }
     '/settings/': {
@@ -96,16 +110,18 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutIndexRoute
-  '/auth': typeof AuthIndexRoute
   '/login': typeof LoginIndexRoute
+  '/profile': typeof ProfileIndexRoute
+  '/register': typeof RegisterIndexRoute
   '/settings': typeof SettingsIndexRoute
 }
 
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutIndexRoute
-  '/auth': typeof AuthIndexRoute
   '/login': typeof LoginIndexRoute
+  '/profile': typeof ProfileIndexRoute
+  '/register': typeof RegisterIndexRoute
   '/settings': typeof SettingsIndexRoute
 }
 
@@ -113,33 +129,43 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about/': typeof AboutIndexRoute
-  '/auth/': typeof AuthIndexRoute
   '/login/': typeof LoginIndexRoute
+  '/profile/': typeof ProfileIndexRoute
+  '/register/': typeof RegisterIndexRoute
   '/settings/': typeof SettingsIndexRoute
 }
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/auth' | '/login' | '/settings'
+  fullPaths: '/' | '/about' | '/login' | '/profile' | '/register' | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/auth' | '/login' | '/settings'
-  id: '__root__' | '/' | '/about/' | '/auth/' | '/login/' | '/settings/'
+  to: '/' | '/about' | '/login' | '/profile' | '/register' | '/settings'
+  id:
+    | '__root__'
+    | '/'
+    | '/about/'
+    | '/login/'
+    | '/profile/'
+    | '/register/'
+    | '/settings/'
   fileRoutesById: FileRoutesById
 }
 
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutIndexRoute: typeof AboutIndexRoute
-  AuthIndexRoute: typeof AuthIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
+  ProfileIndexRoute: typeof ProfileIndexRoute
+  RegisterIndexRoute: typeof RegisterIndexRoute
   SettingsIndexRoute: typeof SettingsIndexRoute
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutIndexRoute: AboutIndexRoute,
-  AuthIndexRoute: AuthIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
+  ProfileIndexRoute: ProfileIndexRoute,
+  RegisterIndexRoute: RegisterIndexRoute,
   SettingsIndexRoute: SettingsIndexRoute,
 }
 
@@ -155,8 +181,9 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about/",
-        "/auth/",
         "/login/",
+        "/profile/",
+        "/register/",
         "/settings/"
       ]
     },
@@ -166,11 +193,14 @@ export const routeTree = rootRoute
     "/about/": {
       "filePath": "about/index.tsx"
     },
-    "/auth/": {
-      "filePath": "auth/index.tsx"
-    },
     "/login/": {
       "filePath": "login/index.tsx"
+    },
+    "/profile/": {
+      "filePath": "profile/index.tsx"
+    },
+    "/register/": {
+      "filePath": "register/index.tsx"
     },
     "/settings/": {
       "filePath": "settings/index.tsx"

@@ -4,6 +4,9 @@ module.exports = {
     content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
   	extend: {
+		boxShadow: {
+			'all': '0 0 2px 2px rgba(255, 255, 255, 0.4)',
+		  },
 		fontFamily: {
 			'Karantina': ['Karantina', 'sans-serif'],
 		  },
