@@ -24,7 +24,7 @@ export const DropContent = () => {
           <img src={notification} alt="" />
           <p>Notification</p>
         </div>
-        <div className="flex gap-[8px] w-full h-[25px] rounded-[4px] items-center hover:bg-[#C2C2C2] hover:text-black px-[15px]">
+        <div className="flex gap-[8px] w-full h-[25px] rounded-[4px] items-center hover:bg-[#868383]/80 hover:text-black px-[15px]">
           <img src={profileImg} alt="" className="w-[12.75px] h-[12.75px]" />
           <Link to="/profile">Account</Link>
         </div>
