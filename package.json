@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "motion": "^12.5.0",
+    "motion-plus": "^0.1.5"
+  }
+}

@@ -1,7 +1,7 @@
 export class CreateUsersDto {
   name: string;
   email: string;
-  password: number;
+  password: string;
 }
 
 export type TUpdateUsersDto = Partial<CreateUsersDto>;

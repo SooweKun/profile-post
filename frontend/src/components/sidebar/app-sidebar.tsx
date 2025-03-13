@@ -1,5 +1,5 @@
 import { ChevronUp, Home, Inbox, Settings, User2 } from "lucide-react";
-
+import { Profile } from "@/assets/profile";
 import {
   Sidebar,
   SidebarContent,
@@ -20,6 +20,11 @@ import { DropContent } from "./DropContent";
 
 // Menu items
 const items = [
+  {
+    title: "Profile",
+    url: "/profile",
+    icon: Profile,
+  },
   {
     title: "Home",
     url: "/",
