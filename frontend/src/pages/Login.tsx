@@ -2,6 +2,7 @@
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Link } from "@tanstack/react-router";
+import { motion } from "motion/react";
 import { useForm } from "react-hook-form";
 
 export const Login = () => {
@@ -30,13 +31,15 @@ export const Login = () => {
               {...register("password", { required: "заполните поле" })}
             />
           </div>
-          <Button
-            type="submit"
-            variant={"ghost"}
-            className="border-[1px] border-white w-max px-[30px] mt-[65px]"
-          >
-            Войти
-          </Button>
+          <motion.div whileTap={{ scale: 0.9 }}>
+            <Button
+              type="submit"
+              variant={"ghost"}
+              className="border-[1px] border-white w-max px-[30px] mt-[65px]"
+            >
+              Создать
+            </Button>
+          </motion.div>
         </form>
         <div className="w-[320px] h-[0.3px] bg-[#C2C2C2] mt-[10px]"></div>
         <div className="flex gap-[10px] mt-[10px]">

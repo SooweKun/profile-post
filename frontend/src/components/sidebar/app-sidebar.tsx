@@ -17,6 +17,7 @@ import {
   DropdownMenuTrigger,
 } from "@radix-ui/react-dropdown-menu";
 import { DropContent } from "./DropContent";
+import { Chart } from "@/assets/chart";
 
 // Menu items
 const items = [
@@ -39,6 +40,11 @@ const items = [
     title: "Settings",
     url: "/settings",
     icon: Settings,
+  },
+  {
+    title: "Chart",
+    url: "/chart",
+    icon: Chart,
   },
 ];
 

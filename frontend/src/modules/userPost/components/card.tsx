@@ -36,7 +36,7 @@ export const Card = memo(() => {
   }, []);
 
   return (
-    <div className="min-w-[300px] max-w-[800px] h-[200px] min-h-[100px] border-2 bg-[#18181B] rounded-[10px] p-[10px] pr-[20px] flex gap-[20px] font-Karantina">
+    <div className="min-w-[300px] w-full max-w-[820px] h-[204px] min-h-[100px] border-2 bg-[#18181B] rounded-[10px] p-[10px] pr-[20px] flex gap-[20px] font-Karantina">
       <div className="bg-[#5C5C5C] w-[190px] h-[170px] rounded-[5px] flex justify-center items-center relative">
         <ImageSkeletonPost />
         <motion.button
@@ -56,7 +56,7 @@ export const Card = memo(() => {
           </p>
         </motion.button>
       </div>
-      <div className="flex flex-col gap-[4px] flex-grow w-[600px] min-w-[300px] leading-tight" ref={containerRef}>
+      <div className="flex flex-col gap-[4px] flex-grow max-w-[550px] w-full min-w-[300px] leading-tight" ref={containerRef}>
         <h1 className="text-[32px] tracking-wider">Name</h1>
         <p className="text text-[20px]">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis eligendi nobis voluptates eaque, minus laboriosam enim voluptatibus voluptatem. Reprehenderit quidem dolore voluptatum? Architecto ipsam, soluta laudantium facilis id recusandae officiis!</p>
       </div>

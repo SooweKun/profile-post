@@ -16,6 +16,7 @@ import { Route as SettingsIndexImport } from './routes/settings/index'
 import { Route as RegisterIndexImport } from './routes/register/index'
 import { Route as ProfileIndexImport } from './routes/profile/index'
 import { Route as LoginIndexImport } from './routes/login/index'
+import { Route as ChartIndexImport } from './routes/chart/index'
 import { Route as AboutIndexImport } from './routes/about/index'
 
 // Create/Update Routes
@@ -50,6 +51,12 @@ const LoginIndexRoute = LoginIndexImport.update({
   getParentRoute: () => rootRoute,
 } as any)
 
+const ChartIndexRoute = ChartIndexImport.update({
+  id: '/chart/',
+  path: '/chart/',
+  getParentRoute: () => rootRoute,
+} as any)
+
 const AboutIndexRoute = AboutIndexImport.update({
   id: '/about/',
   path: '/about/',
@@ -72,6 +79,13 @@ declare module '@tanstack/react-router' {
       path: '/about'
       fullPath: '/about'
       preLoaderRoute: typeof AboutIndexImport
+      parentRoute: typeof rootRoute
+    }
+    '/chart/': {
+      id: '/chart/'
+      path: '/chart'
+      fullPath: '/chart'
+      preLoaderRoute: typeof ChartIndexImport
       parentRoute: typeof rootRoute
     }
     '/login/': {
@@ -110,6 +124,7 @@ declare module '@tanstack/react-router' {
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutIndexRoute
+  '/chart': typeof ChartIndexRoute
   '/login': typeof LoginIndexRoute
   '/profile': typeof ProfileIndexRoute
   '/register': typeof RegisterIndexRoute
@@ -119,6 +134,7 @@ export interface FileRoutesByFullPath {
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutIndexRoute
+  '/chart': typeof ChartIndexRoute
   '/login': typeof LoginIndexRoute
   '/profile': typeof ProfileIndexRoute
   '/register': typeof RegisterIndexRoute
@@ -129,6 +145,7 @@ export interface FileRoutesById {
   __root__: typeof rootRoute
   '/': typeof IndexRoute
   '/about/': typeof AboutIndexRoute
+  '/chart/': typeof ChartIndexRoute
   '/login/': typeof LoginIndexRoute
   '/profile/': typeof ProfileIndexRoute
   '/register/': typeof RegisterIndexRoute
@@ -137,13 +154,28 @@ export interface FileRoutesById {
 
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/' | '/about' | '/login' | '/profile' | '/register' | '/settings'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/chart'
+    | '/login'
+    | '/profile'
+    | '/register'
+    | '/settings'
   fileRoutesByTo: FileRoutesByTo
-  to: '/' | '/about' | '/login' | '/profile' | '/register' | '/settings'
+  to:
+    | '/'
+    | '/about'
+    | '/chart'
+    | '/login'
+    | '/profile'
+    | '/register'
+    | '/settings'
   id:
     | '__root__'
     | '/'
     | '/about/'
+    | '/chart/'
     | '/login/'
     | '/profile/'
     | '/register/'
@@ -154,6 +186,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutIndexRoute: typeof AboutIndexRoute
+  ChartIndexRoute: typeof ChartIndexRoute
   LoginIndexRoute: typeof LoginIndexRoute
   ProfileIndexRoute: typeof ProfileIndexRoute
   RegisterIndexRoute: typeof RegisterIndexRoute
@@ -163,6 +196,7 @@ export interface RootRouteChildren {
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutIndexRoute: AboutIndexRoute,
+  ChartIndexRoute: ChartIndexRoute,
   LoginIndexRoute: LoginIndexRoute,
   ProfileIndexRoute: ProfileIndexRoute,
   RegisterIndexRoute: RegisterIndexRoute,
@@ -181,6 +215,7 @@ export const routeTree = rootRoute
       "children": [
         "/",
         "/about/",
+        "/chart/",
         "/login/",
         "/profile/",
         "/register/",
@@ -192,6 +227,9 @@ export const routeTree = rootRoute
     },
     "/about/": {
       "filePath": "about/index.tsx"
+    },
+    "/chart/": {
+      "filePath": "chart/index.tsx"
     },
     "/login/": {
       "filePath": "login/index.tsx"
