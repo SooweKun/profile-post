@@ -1,5 +1,5 @@
 import { ImageSkeletonPost } from "@/assets/skeletonImagePost";
-import ChangeBg from '@/assets/changeBg.svg'
+import ChangeBg from "@/assets/changeBg.svg";
 
 export const ProfileBg = () => {
   return (

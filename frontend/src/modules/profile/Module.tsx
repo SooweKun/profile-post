@@ -15,9 +15,7 @@ export const ProfileModule = () => {
       </div>
       <div className="w-full flex flex-col items-start px-[32px] mt-[10px] font-Karantina">
         <h1 className="text-white text-[40px] w-max">Name</h1>
-        <p className="text-[24px] text-[#535353] flex flex-grow">
-          description
-        </p>
+        <p className="text-[24px] text-[#535353] flex flex-grow">description</p>
       </div>
       <div className="flex gap-[10px] px-[32px] mt-[55px]">
         <motion.div whileTap={{ scale: 0.9 }}>

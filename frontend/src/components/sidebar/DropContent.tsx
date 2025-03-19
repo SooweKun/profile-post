@@ -1,4 +1,3 @@
-import profileImg from "@/assets/profile-img.svg";
 import notification from "@/assets/notification.svg";
 import group from "@/assets/group.svg";
 import exit from "@/assets/exit.svg";
@@ -8,7 +7,7 @@ export const DropContent = () => {
   return (
     <div className="w-[160px] h-[223px] bg-[#18181B] border-[1px] border-white rounded-[5px] shadow-all flex flex-col items-center">
       <div className="flex gap-[6px] w-full h-[42px] pt-[5px] pb-[8px] justify-center items-center">
-        <img src={profileImg} alt="" className="w-[29px] h-[29px]" />
+        <img src="" alt="" className="w-[29px] h-[29px]" />
         <div className="flex flex-col">
           <p className="text-[12px]">example</p>
           <p className=" text-[10px]">example@mail.com</p>
@@ -25,7 +24,11 @@ export const DropContent = () => {
           <p>Notification</p>
         </div>
         <div className="flex gap-[8px] w-full h-[25px] rounded-[4px] items-center hover:bg-[#868383]/80 hover:text-black px-[15px]">
-          <img src={profileImg} alt="" className="w-[12.75px] h-[12.75px]" />
+          <img
+            src=""
+            alt=""
+            className="w-[12.75px] h-[12.75px]"
+          />
           <Link to="/profile">Account</Link>
         </div>
       </div>
