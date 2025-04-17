@@ -2,7 +2,12 @@
 
 import { Bar, BarChart, CartesianGrid, XAxis } from "recharts";
 
-import { ChartConfig, ChartContainer, ChartTooltip, ChartTooltipContent } from "@/components/ui/chart";
+import {
+  ChartConfig,
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+} from "@/components/ui/chart";
 
 const chartData = [
   { month: "January", desktop: 186, mobile: 80 },
@@ -26,7 +31,10 @@ const chartConfig = {
 
 export function ChartComponent() {
   return (
-    <ChartContainer config={chartConfig} className="min-h-[200px] h-full max-h-[250px] min-w-[300px] w-full border-[1px] border-white rounded-[10px]">
+    <ChartContainer
+      config={chartConfig}
+      className="min-h-[200px] h-full max-h-[250px] min-w-[300px] w-full border-[1px] border-white rounded-[10px]"
+    >
       <BarChart accessibilityLayer data={chartData}>
         <CartesianGrid vertical={false} />
         <ChartTooltip content={<ChartTooltipContent />} />
@@ -37,8 +45,8 @@ export function ChartComponent() {
           axisLine={false}
           tickFormatter={(value) => value.slice(0, 3)}
         />
-        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={4} />
-        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={4} />
+        <Bar dataKey="desktop" fill="var(--color-desktop)" radius={6} />
+        <Bar dataKey="mobile" fill="var(--color-mobile)" radius={6} />
       </BarChart>
     </ChartContainer>
   );

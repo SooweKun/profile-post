@@ -102,3 +102,26 @@
     pointer-events: none;
   }
 }
+
+h1{
+  color: var(--h1-color);
+}
+
+/* Кастомизация скроллбара для WebKit-браузеров (Chrome, Safari) */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 8px; /* Ширина скроллбара */
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: #ffffff; /* Цвет фона трека */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: #7D7FCF; /* Цвет ползунка */
+  border-radius: 4px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: #4c4d8b; /* Цвет ползунка при наведении */
+}

@@ -4,12 +4,15 @@ module.exports = {
     content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
   	extend: {
-		boxShadow: {
-			'all': '0 0 2px 2px rgba(255, 255, 255, 0.4)',
-		  },
-		fontFamily: {
-			'Karantina': ['Karantina', 'sans-serif'],
-		  },
+  		boxShadow: {
+  			all: '0 0 2px 2px rgba(255, 255, 255, 0.4)'
+  		},
+  		fontFamily: {
+  			Karantina: [
+  				'Karantina',
+  				'sans-serif'
+  			]
+  		},
   		borderRadius: {
   			lg: 'var(--radius)',
   			md: 'calc(var(--radius) - 2px)',
@@ -66,6 +69,28 @@ module.exports = {
   				border: 'hsl(var(--sidebar-border))',
   				ring: 'hsl(var(--sidebar-ring))'
   			}
+  		},
+  		keyframes: {
+  			'accordion-down': {
+  				from: {
+  					height: '0'
+  				},
+  				to: {
+  					height: 'var(--radix-accordion-content-height)'
+  				}
+  			},
+  			'accordion-up': {
+  				from: {
+  					height: 'var(--radix-accordion-content-height)'
+  				},
+  				to: {
+  					height: '0'
+  				}
+  			}
+  		},
+  		animation: {
+  			'accordion-down': 'accordion-down 0.2s ease-out',
+  			'accordion-up': 'accordion-up 0.2s ease-out'
   		}
   	}
   },

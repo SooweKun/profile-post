@@ -1,56 +1,42 @@
 import { Heart } from "@/assets/heart";
 import { ImageSkeletonPost } from "@/assets/skeletonImagePost";
-import { animate, motion, stagger } from "motion/react";
-import { splitText } from "motion-plus";
-import { memo, useEffect, useRef, useState } from "react";
+import { motion } from "motion/react";
+import { FC, useState } from "react";
+import { TiltEffect } from "@/components/tiltEffect/tiltEffect";
 
-export const Card = memo(() => {
+interface Props {
+  image: string;
+  description: string;
+  title: string;
+  user_name: string;
+}
+
+export const Card: FC<Props> = ({ image, description, title, user_name }) => {
   const [active, setActive] = useState(false);
 
   const handleActive = () => {
     setActive(!active);
   };
 
-  const containerRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (!containerRef.current) return;
-
-    // Показывает текст только после прогрузки стр
-    containerRef.current.style.visibility = "visible";
-
-    animate(
-      splitText(containerRef.current.querySelector(".text")!).words,
-      {
-        opacity: [0, 1],
-        y: [10, 0],
-      },
-      {
-        type: "spring",
-        duration: 2,
-        bounce: 0,
-        delay: stagger(0.03),
-      }
-    );
-  }, []);
-
   return (
-    <div className="min-w-[300px] w-full max-w-[820px] h-max min-h-[100px] border-2 bg-[#18181B] rounded-[10px] p-[10px] pr-[20px] flex gap-[20px] font-Karantina">
-      <div className="bg-[#5C5C5C] min-w-[190px] w-full max-w-[250px] min-h-[170px] h-full max-h-[250px] rounded-[5px] flex justify-center items-center">
-        <ImageSkeletonPost />
-      </div>
+    <div className="min-w-[300px] w-full max-w-[820px] h-[400px]  border-2 bg-[#18181B] rounded-[10px] p-[10px] pr-[20px] flex gap-[20px] font-Karantina">
+      <TiltEffect>
+        {image ? (
+          <img
+            src={image}
+            alt="Card image"
+            className="min-w-[190px] w-full max-w-[250px] h-[200px] rounded-[5px]"
+          />
+        ) : (
+          <div className="bg-[#5C5C5C] min-w-[190px] w-full max-w-[250px] min-h-[170px] h-full max-h-[250px] rounded-[5px] flex justify-center items-center">
+            <ImageSkeletonPost />
+          </div>
+        )}
+      </TiltEffect>
       <div className="flex flex-col gap-[20px]">
-        <div
-          className="flex flex-col gap-[4px] flex-grow max-w-[500px] w-full min-w-[300px] h-max leading-tight"
-          ref={containerRef}
-        >
-          <h1 className="text-[32px] tracking-wider">Name</h1>
-          <p className="text text-[20px]">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis
-            eligendi nobis voluptates eaque, minus laboriosam enim voluptatibus
-            voluptatem. Reprehenderit quidem dolore voluptatum? Architecto
-            ipsam, soluta laudantium facilis id recusandae officiis!
-          </p>
+        <div className="flex flex-col gap-[4px] flex-grow max-w-[500px] w-full min-w-[300px] h-max leading-tight">
+          <h1 className="text-[32px] tracking-wider w-full">{title}</h1>
+          <p className="text text-[20px]">{description}</p>
         </div>
         <motion.button
           onClick={handleActive}
@@ -62,6 +48,7 @@ export const Card = memo(() => {
           }`}
         >
           <Heart active={active} />
+
           <p
             className={`font-Karantina text-[25px] ${active ? "text-white" : "text-black"}`}
           >
@@ -69,9 +56,9 @@ export const Card = memo(() => {
           </p>
         </motion.button>
       </div>
-      <div className="flex justify-end items-end">
-        <p className="text-[22px]">name</p>
+      <div className="flex justify-end items-end flex-grow">
+        <p className="text-[22px]">{user_name}</p>
       </div>
     </div>
   );
-});
+};
